@@ -1,4 +1,44 @@
 body{
+	background-color: blue;
 	margin: 0;
 	padding: 0;
+	color: white;
 }
+
+h1{
+	text-align: center;
+}
+
+
+.register{
+	width: 320px;
+	height: 450px;
+	background: #9999ff;
+	color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	box-sizing: border-box;
+	padding: 30px;
+}
+
+.register input{
+	width: 100%;
+}
+
+
+input[type=email], input[type=password]{
+	border: none;
+	border-bottom: 1px solid black;
+	background:transparent;
+
+	}
+
+input[type=submit]{
+	border:none;
+	outline: none;
+	height: 30px;
+	background-color: #ffff80;
+}
+
