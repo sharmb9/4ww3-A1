@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<HEAD>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Register</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</HEAD>
+
+<body>
+
+  <header class="header">
+    <a href="#default" class="logo">CompanyLogo</a>
+    <div class="header-right">
+      <a class="active" href="#home">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+  </header>
+  
+  <form class="search">
+    <input type="text" name="search" placeholder="Search..">
+  </form>
+
+  <p>Filters:</p>
+
+  <nav role="navigation">
+  <ul>
+    <li><a href="#">Distance</a></li>
+    <li><a href="#">Price</a>
+      <ul class="dropdown">
+        <li><div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50"></li>
+      </ul>
+    </li>
+    <li><a href="#">Ratings</a>
+      <ul class="dropdown">
+        <li><a href="#">Sub-1</a></li>
+        <li><a href="#">Sub-2</a></li>
+        <li><a href="#">Sub-3</a></li>
+      </ul>
+    </li>
+  </ul>
+  </nav>
+
+  <footer class="footer">
+    <p>Copyright &copy; Bilaval Sharma 2018</p>
+  </footer>
+
+</body>
+
+</html>
