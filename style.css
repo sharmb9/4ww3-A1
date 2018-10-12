@@ -112,6 +112,24 @@ ul li{
 	margin-right: 2px;
 }
 
+ul li a{
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+ul li a:hover{
+	background-color: darkorange;
+}
+
+ul li ul li{
+	display: none;
+}
+
+ul li:hover ul li{
+	display: block;
+}
+
 .footer{
 	position: fixed;
  	left: 0;
