@@ -12,7 +12,6 @@
 
     <header>
       <div class="container">
-        <!-- id="branding" -->
         <div id="site_name"> 
           <h1><span class="highlight">ParkingSpot</span> Locator</h1>
         </div>
@@ -26,7 +25,7 @@
       </div>
     </header>
   
-    <section id="showcase">
+    <section id="site_heading">
       <div class="container">
         <h1>Find nearest and affordable parking spot</h1>
       </div>
@@ -34,18 +33,54 @@
 
     <section id="searchbar">
       <div class="container">
-        <h1>Subscribe To Our Newsletter</h1>
+        <h1>Search parking spots</h1>
         <form action="results.html">
           <input type="text" placeholder="Search...">
-          <button type="submit" class="button_1">Search</button>
+          <button type="submit" class="search_button">Search</button>
         </form>
       </div>
     </section>    
 
+    <section id="filters">
+      <div class="container">
+        <div class="box">
+          <div class="dropdown">
+            <button class="dropbtn">Distance</button>
+            <div class="dropdown-content">
+              <a href="#">500 m</a>
+              <a href="#">750 m</a>
+              <a href="#">1 km</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <!-- Put a slider later(js) -->
+            <button class="dropbtn">Price</button>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+          </div>
+        </div>
+        <div class="box">
+          <div class="dropdown">
+            <button class="dropbtn">Ratings</button>
+            <div class="dropdown-content">
+              <a href="#">3 Stars</a>
+              <a href="#">4 Star</a>
+              <a href="#">5 Star</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   <footer class="footer">
     <p>Copyright &copy; Bilaval Sharma 2018</p>
   </footer>
+
 
 </body>
 
