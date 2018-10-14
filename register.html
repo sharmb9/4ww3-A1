@@ -2,9 +2,9 @@
 <html>
 
 <HEAD>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Register</title>
+  <title>Register</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </HEAD>
 
@@ -12,13 +12,12 @@
 
     <header>
       <div class="container">
-        <!-- id="branding" -->
         <div id="site_name"> 
-          <h1><span class="highlight">Acme</span> Web Design</h1>
+          <h1><span class="highlight">ParkingSpot</span> Locator</h1>
         </div>
         <nav>
           <ul>
-            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
           </ul>
@@ -26,26 +25,41 @@
       </div>
     </header>
   
-  <div class="register">
-    <h1>Sign up</h1>
-    <form action="search.html">
-      <p>Email</p>
-      <input type="Email" name="" placeholder="Enter email">
-      <p>Password</p>
-      <input type="Password" name="" placeholder="Enter Password">
-      <p>Confirm password</p>
-      <input type="password" name="" placeholder="Confirm Password">
-      <br>
-      <br>
-      <input type="radio" name="">By clicking here you agree to our <a href="#">Terms & Privacy</a>.
-      <hr>
-      <input type="submit" value="Submit">
-    </form>
+    <section id="site_heading">
+      <div class="register_container">
+        <h1>Find nearest and affordable parking spots</h1>
+        <hr>
+        <form action="/action_page.php">
+  <div class="container">
+    <h1 style="color: black;">Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <hr>
+    <input type="radio" name="terms"><p>I agree to the <a href="#">Terms & Privacy</a>.</p>
+
+    <button type="submit" class="registerbtn">Register</button>
   </div>
+  
+  <div class="container signin">
+    <p><a href="submission.html">Submit</a> your own parking spot</p>
+  </div>
+</form>
+      </div>
+    </section>
 
   <footer class="footer">
     <p>Copyright &copy; Bilaval Sharma 2018</p>
   </footer>
+
 
 </body>
 
