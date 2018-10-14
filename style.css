@@ -60,36 +60,22 @@ header .highlight{
 
 
 /*Register page (sign up form)*/
-.register{
-	width: 320px;
-	height: 450px;
-	background: darkorange;
-	color: white;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	position: absolute;
-	box-sizing: border-box;
-	padding: 30px;
+.register_container{
+  color: white;
+  width:80%;
+  margin:auto;
+  overflow:hidden;
+  padding: 20px;
+  min-height:300px;
 }
 
-.register input{
-	width: 100%;
-}
-
-
-input[type=email], input[type=password]{
-	border: none;
-	border-bottom: 1px solid black;
-	background:transparent;
-
-	}
-
-input[type=submit]{
-	border:none;
-	outline: none;
-	height: 30px;
-	background-color: #ffff80;
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
 }
 
 /*search.html*/
@@ -237,11 +223,65 @@ img{
 }
 
 
+/*Parking.html*/
+
+/*lot name8*/
+#lot_name{
+  padding:15px;
+  color:#ffffff;
+  background:#3995f7;
+  text-align:center;
+}
+
+/*info_review*/
+#info_reviews{
+  text-align: center;
+  margin-top:20px;
+  min-height: 100px;
+}
+
+.info{
+  padding: 10px;
+}
+
+/*review table*/
+.review_table{
+  display: table;
+  width: 100%;  
+}
 
 
+/*submission.html*/
 
+.submit_container input[type=text], select, textarea {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
 
+label {
+    padding: 12px;
+    display: inline-block;
+}
 
+input[type=submit] {
+    height: 38px; 
+    margin: 10px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ffff75;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+.submit_container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
 
 
 footer{
@@ -253,7 +293,7 @@ footer{
 }
 
 
-/* Media Queries */
+/* Media Queries need to put for all the web pages*/
 @media(max-width: 768px){
   header #site_name,
   header nav,
@@ -270,12 +310,12 @@ footer{
     margin-top:40px;
   }
 
-  #searchbar search_button, .quote search_button{
+  #searchbar search_button{
     display:block;
     width:100%;
   }
 
-  #searchbar form input[type="text"], .quote input, .quote textarea{
+  #searchbar form input[type="text"]{
     width:100%;
     margin-bottom:5px;
   }
