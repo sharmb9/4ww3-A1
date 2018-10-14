@@ -3,20 +3,28 @@
 
 <HEAD>
 	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Register</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </HEAD>
 
 <body>
 
-  <header class="header">
-    <a href="#default" class="logo">CompanyLogo</a>
-    <div class="header-right">
-      <a class="active" href="#home">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-    </div>
-  </header>
+    <header>
+      <div class="container">
+        <!-- id="branding" -->
+        <div id="site_name"> 
+          <h1><span class="highlight">Acme</span> Web Design</h1>
+        </div>
+        <nav>
+          <ul>
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   
   <div class="register">
     <h1>Sign up</h1>
@@ -35,7 +43,6 @@
     </form>
   </div>
 
-  <hr style="margin: 0px;">
   <footer class="footer">
     <p>Copyright &copy; Bilaval Sharma 2018</p>
   </footer>
