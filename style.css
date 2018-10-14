@@ -199,6 +199,7 @@ input[type=submit]{
 /*result menu*/
 .vertical-menu {
     width: 200px;
+    height: 150px;
     text-align: center;
     margin-left: 5px;
     position: fixed;
@@ -221,13 +222,18 @@ input[type=submit]{
     background-color: #a3c9ff;
     color: white;
 }
+.spot_name{
+  font-weight: bold;
+}
 
 .result_map {
     margin-left: 200px;
     padding: 0px 10px;
+}
+
+img{
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
 }
 
 
