@@ -22,3 +22,46 @@ function validateForm() {
 	} 
 	
 }
+
+    // Initialize and add the map
+    function initMap() {
+    // The location of coords
+    var coords = {lat: 43.257921, lng: -79.9158836};
+    // The map, centered at coords
+    var map = new google.maps.Map(
+        document.getElementById('result_map'), {zoom: 15, center: coords});
+
+    /*var marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          title: 'Hello World!'
+        }); */
+
+    //Array of manually added parking spots with their coordinates
+    var parkingSpots= [
+    ['Lot C', 43.265675, -79.915700],
+    ['Lot G', 43.266584, -79.918004],
+    ['Lot A', 43.262133, -79.917548],
+    ]
+
+    // Adding markers and infor windows to parking spots
+    var infoWindow= new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < parkingSpots.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(parkingSpots[i][1], parkingSpots[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infoWindow.setContent(parkingSpots[i][0]);
+          infoWindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+}
+
