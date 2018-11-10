@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -17,9 +18,10 @@
         </div>
         <nav>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="register.html">Home</a></li>
+            <li><a href="">Sign in</a></li>
+            <li><a href="">Sign out</a></li>
+            <li><a href="submission.html">Submit</a></li>
           </ul>
         </nav>
       </div>
@@ -43,9 +45,7 @@
     </div>
 
 
-    <div class="result_map">
-      <!-- Taken from https://www.google.com/maps/search/parking+near+mcmaster+university/@43.2666342,-79.9184351,16.48z -->
-      <img src="result_map.png">
+    <div id="result_map">
     </div>
 
 
@@ -54,6 +54,23 @@
     <p>Copyright &copy; Bilaval Sharma 2018</p>
   </footer>
 
+
+    <script>
+    // Initialize and add the map
+    function initMap() {
+    // The location of Uluru
+    var uluru = {lat: 43.257921, lng: -79.918836};
+    // The map, centered at Uluru
+    var map = new google.maps.Map(
+        document.getElementById('result_map'), {zoom: 15, center: uluru});
+    // The marker, positioned at Uluru
+    var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+  </script>
+  
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLXjpg2rRuwWlD2ovKO8WLB4Ape9p6FQs&callback=initMap">
+  </script>
 
 </body>
 
