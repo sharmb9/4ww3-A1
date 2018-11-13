@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Results</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="javascript.js"></script>
 </HEAD>
 
 <body>
@@ -39,7 +40,7 @@
         <p>Price: $4/hr</p>
         <p>300 m</p>
         <a href="parking.html" target="_blank">Result 3</a>
-        <p class="spot_name">McMaster University Parking Lot P</p>
+        <p class="spot_name">McMaster University Parking Lot A</p>
         <p>Price: $6/hr</p>
         <p>250 m</p>
     </div>
@@ -55,18 +56,7 @@
   </footer>
 
 
-    <script>
-    // Initialize and add the map
-    function initMap() {
-    // The location of Uluru
-    var uluru = {lat: 43.257921, lng: -79.918836};
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-        document.getElementById('result_map'), {zoom: 15, center: uluru});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
-    }
-  </script>
+ 
   
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLXjpg2rRuwWlD2ovKO8WLB4Ape9p6FQs&callback=initMap">
