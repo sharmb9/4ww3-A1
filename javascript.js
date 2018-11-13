@@ -3,7 +3,6 @@ function validateForm() {
 	var x= document.forms["register_form"]["email"].value;
 	var y= document.forms["register_form"]["psw"].value;
 	var z= document.forms["register_form"]["psw-repeat"].value;
-	var rad= document.forms["register_form"]["terms"].value;
 
 	//Makes sure email and password sections are not empty, might be overwritten by HTML5's validation
 	if (x == "" || y == "") {
@@ -15,12 +14,15 @@ function validateForm() {
 		alert("Password doesn't match!");
 		return false;
 	}
-	//Makes sure user has agreed to terms and conditions (Fix this, not working right now)
-	if (rad.checked == false){
-		alert("You need to check the terms and conditions");
-		return false;
-	} 
-	
+
+	//Makes sure that user has agreed to terms and conditioned
+	if(document.getElementById('termsncond').checked){ 
+		return true;
+	 }
+	  else { 
+	  	alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy');
+	  	 return false; }
+
 }
 
     // Initialize and add the map
@@ -60,3 +62,30 @@ function validateForm() {
 
 }
 
+//Creates a map for parking page
+function initMap1(){
+    // The location of coords
+    var coords = {lat: 43.263338, lng: -79.918282}; 
+    // The map, centered at coords
+    var map = new google.maps.Map(
+        document.getElementById('lotA'), {zoom: 16, center: coords});
+
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(43.263338, -79.918282),
+        map: map
+      });    	
+}
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        window.alert("GeoLocation not supported by browser");
+    }
+}
+
+
+function showPosition(position) {
+    window.alert("Using user location...");
+}
