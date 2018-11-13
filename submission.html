@@ -6,71 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Submit a parking spot</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="javascript.js"></script>
 </HEAD>
 
 <body>
 
-    <header>
-      <div class="container">
-        <div id="site_name"> 
-          <h1><span class="highlight">ParkingSpot</span> Locator</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-   
-    <div class="submit_container">
-  <form action="/action_page.php" style="text-align: center;">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Name of location</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="locationname" placeholder="Enter location..">
-      </div>
+<header>
+  <div class="container">
+    <div id="site_name"> 
+      <h1><span class="highlight">ParkingSpot</span> Locator</h1>
     </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Description</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="description" placeholder="Description..">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="country">Coordinates</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="description" placeholder="Coordinates..">
-      </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="subject">Upload an image for the parking service</label>
-      </div>
-      <div class="col-75">
-        <input type="file" name="pic" accept="image/*">
-      </div>
-    </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-  </form>
-</div>    
+    <nav>
+      <ul>
+        <li><a href="register.html">Home</a></li>
+        <li><a href="">Sign in</a></li>
+        <li><a href="">Sign out</a></li>
+        <li><a href="submission.html">Submit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<!-- 
-<footer class="footer">
+<section id="site_heading">
+<div class="register_container">
+<h1>Find nearest and affordable parking spots</h1>
+<hr>
+<form action="/action_page.php">
+  <div class="container">
+    <h1 style="color: black;">Submit a location</h1>
+    <p>Please fill in this form to submit a parking location.</p>
+    <hr>
+
+    <p><b>Name of location</b></p>
+    <input type="text" placeholder="Enter Location" name="location" required>
+
+    <p><b>Description</b></p>
+    <input type="text" placeholder="Enter Description" name="description" required>
+
+    <p><b>Coordinates</b></p>
+    <input type="text" placeholder="Coordinates" name="coordinates" required>
+    <hr>
+
+    <p><b>Upload an image of the location</b></p>
+    <input type="file" name="pic" accept="image/*">
+  </div>
+
+  <button type="submit" class="registerbtn">Submit</button>
+
+</form>
+</div>
+</section>
+     
+<footer>
     <p>Copyright &copy; Bilaval Sharma 2018</p>
   </footer> 
--->
-
-
 
 </body>
 
