@@ -36,11 +36,11 @@
 <section id="searchbar">
   <div class="container">
     <h1>Search parking spots</h1>
-    <form action="results.html" target="_blank">
-      <input type="text" placeholder="Search...">
+    <form action="results.html" name="searchAddress" onsubmit="return validateSearchForm()" >
+      <input type="text" placeholder="Search..." name="searchInput" required>
       <button type="submit" class="search_button">Search</button>
-      <button type="submit" id="locationButton" onclick="getLocation()">Use my location to search</button>
     </form>
+    <button type="submit" id="locationButton" onclick="getLocation()">Use my location to search</button>
   </div>
 </section>    
 
