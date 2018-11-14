@@ -25,8 +25,31 @@ function validateForm() {
 
 }
 
-    // Initialize and add the map
-    function initMap() {
+//Validates the submission form
+function validateForm2(){
+	var x= document.forms["register_form2"]["location"].value;
+	var y= document.forms["register_form2"]["description"].value;
+	var z= document.forms["register_form2"]["coordinates"].value;
+
+	//Makes sure user adds a location
+	if (x == " ") {
+		alert("Please enter a location name");
+		return false;
+	}
+	//Makes sure user adds a description
+	if (y==" ") {
+		alert("Please enter a description");
+		return false;
+	}
+	//Makes sure user adds valid coordinates
+	if (isNaN(z) || z < -90 || z > 90) { //change
+		alert("Invalid coordinates!");
+		return false;
+	}
+}
+
+// Initialize and add the map
+function initMap() {
     // The location of coords
     var coords = {lat: 43.263338, lng: -79.918282}; 
     // The map, centered at coords
@@ -69,15 +92,27 @@ function initMap1(){
     // The map, centered at coords
     var map = new google.maps.Map(
         document.getElementById('lotA'), {zoom: 16, center: coords});
-
+    //Add marker to the parking spot
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(43.263338, -79.918282),
         map: map
       });    	
 }
 
+//Makes sure user adds an address in search.html
+function validateSearchForm(){
+	var a= document.forms["searchAddress"]["searchInput"].value;
 
+	//Makes sure user adds a location
+	if (a == " ") {
+		alert("Please enter an address");
+		return false;
+	}
+}
+
+//When the button is clicked, ask for permission to use user location 
 function getLocation() {
+	//if permission granted, showPosition is excecuted
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     } else { 
@@ -85,7 +120,23 @@ function getLocation() {
     }
 }
 
-
+//If user grants permission to use location, alert box notifies the user that location is being used
 function showPosition(position) {
     window.alert("Using user location...");
+    window.location.assign("results.html")
+}
+
+//Uses geo location to get user location for submission page
+function getLocationSubmission(){
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPositionSub);
+	} else{
+		window.alert("GeoLocation not supported by browser");
+	}
+}
+
+//Puts the coordinates in the input box
+function showPositionSub(position){
+	window.alert("Using user location..");
+	document.getElementById('coord').value= (position.coords.latitude+ "," + position.coords.longitude);
 }
