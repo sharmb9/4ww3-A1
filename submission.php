@@ -69,8 +69,8 @@
    //Uploading the image to aws bucket
 
    //Inlcuding the S3 bucket and S3.php library
-   $awsAccessKey = "AKIAITPUDFHEI3MAK7DQ";
-   $awsSecretKey = "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";
+   $awsAccessKey = "awskey";
+   $awsSecretKey = "awssecret";
    $bucketName = "4ww3imagebucket";
 
    require_once ("S3.php");
