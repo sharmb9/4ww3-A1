@@ -1,21 +1,26 @@
 <?php
   require_once 'database_config.php';
 
-  if(isset($_POST['registerbtn'])){
+  if(isset($_POST['submitButton'])){
     
     //Retrieve the field values from our submission form.
     //Makes sure input is not null and gets reid of uneccessary spacing
-    $location = !empty($_POST['location']) ? trim($_POST['location']) : null;
+    $name = !empty($_POST['location']) ? trim($_POST['location']) : null;
     $description = !empty($_POST['description']) ? trim($_POST['description']) : null;
-    // get lat and long separatley$coordinates = !empty($_POST['coordinates']) ? trim($_POST['coordinates']) : null; 
+ 
+    //Separating long and lat from input
+    $lat_long= !empty($_POST['location']) ? explode(',', $_POST['coordinates']) : null;
+
+    $lat= $lat_long[1];
+    $long= $lat_long[0];
     
     //Check if username already exists.
     
-    $sql = "SELECT COUNT(email) AS num FROM users WHERE email = :email";
+    $sql = "SELECT COUNT(name) AS num FROM parkings WHERE name = :name";
     $stmt = $pdo->prepare($sql);
     
     //Bind the provided email to our statement.
-    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':name', $name);
     $stmt->execute();
     
     //Fetch the row.
@@ -23,30 +28,73 @@
     
     //If the provided eamil already exists - display error and ask to go to login or registeration page
     if($row['num'] > 0){
-        $url_signIn = 'login.php';
-        $url_signUp = 'register.php';
-        die('<p>Create a new account or login: <a href="' . $url_signIn . '">' . $url_signIn . '</a>'
-        . '<p><a href="' . $url_signUp . '">' . $url_signUp . '</a>');
-    }
-    
-    
+        echo "Parking spot already exists!";
+    }else {
     //Prepare our INSERT statement.
     //Remember: We are inserting a new row into our users table.
-    $sql = "INSERT INTO users (email, password) VALUES (:email, :pass)";
+    $sql = "INSERT INTO parkings (name, latitude, longitude, description) VALUES (:name, :latitude, :longitude, :description)";
     $stmt = $pdo->prepare($sql);
     
     //Bind our variables.
-    $stmt->bindValue(':email', $email);
-    $stmt->bindValue(':pass', $pass);
+    $stmt->bindValue(':name', $name);
+    $stmt->bindValue(':latitude', $lat);
+    $stmt->bindValue(':longitude', $long);
+    $stmt->bindValue(':description', $description);
  
     //Execute the statement and insert the new account.
     $result = $stmt->execute();
+
+    //var_dump($_FILES);
+
+  //Error checking
+   if (!isset($_FILES['pic']['error']) ||
+    ($_FILES['pic']['error'] != UPLOAD_ERR_OK)) {
+    echo 'Error uploading file.';
+    return;
+   }
+
+   //Making sure users uploades file with correct extension and no harmfull content is uploaded
+   $finfo = new finfo(FILEINFO_MIME_TYPE);
+   if ($finfo->file($_FILES['pic']['tmp_name']) === "image/jpeg") {
+    $fileextension = "jpg";
+   } else {
+    echo 'Uploaded file was not a valid image.';
+    return;
+   }
+
+   //ecrypting the file
+   $filehash = sha1_file($_FILES['pic']['tmp_name']);
+   $filename = $filehash . "." . $fileextension;
+
+   //Uploading the image to aws bucket
+
+   //Inlcuding the S3 bucket and S3.php library
+   $awsAccessKey = "AKIAITPUDFHEI3MAK7DQ";
+   $awsSecretKey = "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";
+   $bucketName = "4ww3imagebucket";
+
+   require_once ("S3.php");
+
+   $s3 = new S3($awsAccessKey, $awsSecretKey);
+
+   //upload file to AWS
+   $ok = $s3->putObjectFile($_FILES['pic']['tmp_name'],
+    $bucketName,
+    $filename,
+    S3::ACL_PUBLIC_READ);
+
     
     //If the signup process is successful.
-    if($result){
-        //What you do here is up to you!
-        echo 'Thank you for registering with our website.';
-    }
+    if($result && $ok){
+        //If everything works fine
+        $url = 'https://s3.amazonaws.com/' . $bucketName . '/' . $filename;
+        echo 'Thank you for registering the parking spot <p>File upload successful: <a href="' . $url . '">' . $url ;
+    }else {
+    echo 'Error uploading file.';
+  }      
+    }  
+    
+
     
 }
 
@@ -74,7 +122,7 @@
 <div class="register_container">
 <h1>Find nearest and affordable parking spots</h1>
 <hr>
-<form method="POST" action="submit_file.php" enctype="multipart/form-data" name="register_form2" onsubmit="return validateForm2()">
+<form method="POST"   enctype="multipart/form-data" name="register_form2" onsubmit="return validateForm2()">
   <div class="container">
     <h1 style="color: black;">Submit a location</h1>
     <p>Please fill in this form to submit a parking location.</p>
@@ -96,7 +144,7 @@
     <input type="file" name="pic" accept="image/*" required>
   </div>
 
-  <button type="submit" class="registerbtn">Submit</button>
+  <button type="submit" class="registerbtn" name="submitButton">Submit</button>
 
 </form>
 </div>
