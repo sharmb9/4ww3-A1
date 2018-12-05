@@ -46,7 +46,7 @@
  
   
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLXjpg2rRuwWlD2ovKO8WLB4Ape9p6FQs&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=API_Key&callback=initMap">
   </script>
 
 </body>
